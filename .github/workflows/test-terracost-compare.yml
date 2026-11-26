@@ -28,7 +28,7 @@ jobs:
         uses: ./terracost-compare
         with:
           modules: .github/stubs/terracost-compare
-          base-ref: 9450b853ed52bfea1dbc73f9e95e7f7e4be6418b
+          base-ref: 9450b853ed52bfea1dbc73f9e95e7f7e4be6418b # pragma: allowlist secret
 
       - name: Check the cost difference is a positive number
         env:

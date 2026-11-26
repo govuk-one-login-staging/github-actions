@@ -18,7 +18,7 @@ inputs:
   terracost-ref:
     description: "Commit of cycloidio/terracost to build and use"
     required: false
-    default: "683308f82b404bb5ff74acee4bbbd89cc6aaeee2"
+    default: "683308f82b404bb5ff74acee4bbbd89cc6aaeee2" # pragma: allowlist secret
 outputs:
   summary:
     description: "Markdown summary of the comparison. Also written to the job summary"
@@ -62,7 +62,7 @@ runs:
     - name: Start MySQL for price data
       shell: bash
       # Credentials and port match the ones hardcoded in Terracost's examples/terracost.go
-      run: |
+      run: | # pragma: allowlist secret
         docker run -d --name terracost-mysql -p 127.0.0.1:3306:3306 \
           -e MYSQL_ROOT_PASSWORD=terracost -e MYSQL_DATABASE=terracost_test mysql:8.4.3
         for _ in $(seq 1 30); do

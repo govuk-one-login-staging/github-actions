@@ -3,5 +3,6 @@ provider "aws" {
 }
 
 resource "aws_sqs_queue" "terracost_test" {
-  name = "terracost-compare-test"
+  name                    = "terracost-compare-test"
+  sqs_managed_sse_enabled = true
 }
