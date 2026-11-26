@@ -4,6 +4,10 @@ set -euo pipefail
 
 CHECK_MERGE_COMMITS_SCRIPT="$(dirname "$0")/../../../../scripts/code-quality/check-merge-commits/check-merge-commits.sh"
 
+# The PRs used below (#36 and #37) live in the upstream repository, so always check against it.
+# This keeps the test working in forks, where those PR numbers do not exist.
+export GITHUB_REPOSITORY="govuk-one-login/github-actions"
+
 echo "Test 1: Verifying non-PR event fails"
 
 export GITHUB_EVENT_NAME="push"
